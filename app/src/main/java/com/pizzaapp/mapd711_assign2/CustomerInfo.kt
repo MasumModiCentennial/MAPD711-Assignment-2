@@ -1,9 +1,13 @@
 package com.pizzaapp.mapd711_assign2
 
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.pizzaapp.mapd711_assign2.databinding.ActivityCustomerInfoBinding
@@ -24,6 +28,13 @@ class CustomerInfo : AppCompatActivity() {
             pizzaName = intent.getStringExtra("pizzaName").toString()
             pizzaSize = intent.getStringExtra("pizzaSize").toString()
             extraToppings = intent.getStringArrayExtra("extraToppings") as Array<String>
+        }
+
+        //Change the status bar color
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val window: Window = window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.statusBarColor = Color.WHITE
         }
     }
 

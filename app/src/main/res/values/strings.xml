@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MainScreen</string>
+    <string name="app_name">Pizza App</string>
     <string name="customer_information">Customer Information</string>
     <string name="checkout">Checkout</string>
     <string-array name="myPizzaList">
