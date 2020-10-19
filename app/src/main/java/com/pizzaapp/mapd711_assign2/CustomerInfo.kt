@@ -73,7 +73,13 @@ class CustomerInfo : AppCompatActivity() {
 
     //Open Checkout Activity with some data
     private fun openCheckoutActivity() {
-
+        val i = Intent(applicationContext, OrderCheckout::class.java)
+        i.putExtra("pizzaName", pizzaName)
+        i.putExtra("pizzaSize", pizzaSize)
+        i.putExtra("extraToppings", extraToppings)
+        i.putExtra("fullName", etName.text.toString())
+        i.putExtra("address", etAddress.text.toString())
+        startActivity(i)
     }
 
     fun onBackPressed(view: View) {

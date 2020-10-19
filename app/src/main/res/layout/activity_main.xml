@@ -186,6 +186,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/buttonBg"
         android:text="Checkout"
+        android:onClick="btnPizzaOrder"
         android:textColor="@color/white"
         android:textSize="16dp"
         android:textStyle="bold" />
