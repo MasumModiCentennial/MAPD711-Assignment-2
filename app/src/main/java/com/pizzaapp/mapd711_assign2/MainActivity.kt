@@ -1,7 +1,9 @@
 package com.pizzaapp.mapd711_assign2
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -9,11 +11,11 @@ import android.view.WindowManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.pizzaapp.mapd711_assign2.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()
+{
     var pizzaName: String = ""
     var pizzaSize: String = ""
     var extraToppings = arrayOf<String>()
@@ -40,12 +42,7 @@ class MainActivity : AppCompatActivity() {
         spinnerPizzaList.adapter = adapter
         spinnerPizzaList.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 pizzaName = pizzaList[position]
             }
 
@@ -66,11 +63,7 @@ class MainActivity : AppCompatActivity() {
             R.id.rdButtonLarge -> pizzaSize = "Large"
             R.id.rdButtonMedium -> pizzaSize = "Medium"
             R.id.rdButtonSmall -> pizzaSize = "Small"
-            else -> Toast.makeText(
-                applicationContext,
-                "Please select size of your pizza",
-                Toast.LENGTH_SHORT
-            ).show()
+            else -> Toast.makeText(applicationContext, "Please select size of your pizza", Toast.LENGTH_SHORT).show()
         }
         if (pizzaSize.isNotEmpty()) getToppings()
     }
@@ -88,6 +81,10 @@ class MainActivity : AppCompatActivity() {
 
     //Open Checkout activity
     private fun openCustomerInfoActivity() {
-
+        val i = Intent(applicationContext, CustomerInfo::class.java)
+        i.putExtra("pizzaName", pizzaName)
+        i.putExtra("pizzaSize", pizzaSize)
+        i.putExtra("extraToppings", extraToppings)
+        startActivity(i)
     }
 }
