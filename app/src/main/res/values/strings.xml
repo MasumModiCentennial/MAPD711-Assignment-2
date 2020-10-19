@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">MAPD711_Assign2</string>
+    <string name="app_name">MainScreen</string>
+    <string name="customer_information">Customer Information</string>
+    <string name="checkout">Checkout</string>
+    <string-array name="myPizzaList">
+        <item>Meat Supreme</item>
+        <item>Super Hawaiian</item>
+        <item>Veggie</item>
+        <item>Mediterranean</item>
+        <item>Cheddar Supreme</item>
+    </string-array>
 </resources>
